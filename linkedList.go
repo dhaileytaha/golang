@@ -1,26 +1,48 @@
 package main
 
-type Node struct {
-	prev *Node
-	next *Node
-	key interface{}
-}
 
-type List struct {
+type list struct {
 	head *Node
 	tail *Node
 }
 
-func (l *List) Display() {
-    list := l.head
-    for list != nil {
-        fmt.Printf("%+v ->", list.key)
-        list = list.next
-    }
-    fmt.Println()
+type Node struct {
+	value int
+	next *Node
+}
+
+func (l *list)first() *Node {
+   return l.head
+} 
+
+func (l *list) Push(value int) {
+	node := &Node{value: value}
+
+	if(l.head == nil) {
+		l.head = node
+	} else {
+		l.tail.next = node
+	}
+	l.tail = node
+}
+
+func (n *Node)Next() *Node {
+	return n.next
 }
 
 func main(){
-	link := List{5, 9, 10, 11}
-	link.Display()
+	l := &list{}
+	l.Push(11)
+	l.Push(32)
+	l.Push(3)
+		n := l.first()
+
+	for {
+		println(n.value)
+		n = n.Next()
+		if n == nil {
+			break
+		}
+	}
+
 }
