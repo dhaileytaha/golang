@@ -1,5 +1,5 @@
 package main
-
+//Time O(N) Space O(N)
 // This is the struct of the input root. Do not edit it.
 type BinaryTree struct {
 	Value int

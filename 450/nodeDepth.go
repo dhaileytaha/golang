@@ -1,5 +1,6 @@
 package main
 
+//Time O(N) Space O(h) ; h - height
 //BinaryTree...
 type BinaryTree struct {
 	Value int
